@@ -3,13 +3,42 @@ import logo from '@/assets/logo.png'
 import './index.scss'
 
 import { Form, Input, Button, Checkbox } from 'antd'
+import { useStore } from '@/store'
+
+
+
+
 
 function Login () {
+
+  const { loginStore } = useStore()
+  function onFinish (values) {
+    console.log(values)
+
+    loginStore.getToken({
+      mobile: values.mobile,
+      code: values.code
+    })
+  }
+
+  // function onFinishFailed (errorInfo) {
+  //   console.log('Failed:', errorInfo)
+  // }
+
   return (
     <div className='login'>
       <Card className='login-container'>
         <img className='login-logo' src={logo} alt="" />
-        <Form validateTrigger={['onBlur', 'onChange']}>
+        <Form
+
+          onFinish={onFinish}
+          initialValues={{
+            remember: true,
+            mobile: '13811111111',
+            code: '246810'
+          }}
+
+          validateTrigger={['onBlur', 'onChange']}>
           <Form.Item
             name="mobile"
             rules={[

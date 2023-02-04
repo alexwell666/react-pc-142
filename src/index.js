@@ -1,6 +1,6 @@
 import React from 'react'
-// import ReactDOM from 'react-dom/client'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
+// import ReactDOM from 'react-dom'
 import App from './App'
 //导入antd
 import 'antd/dist/reset.css'
